@@ -1,0 +1,45 @@
+.bg-f8f8f8{
+  background-color: #f8f8f8;
+}
+.bg-f8f8f8 p{
+
+}
+.btnlogin{
+  margin-top: 30px;
+  width: 100px;
+  font-size: 18px;
+  padding: 8px 20px;
+  border-radius: 3px;
+  background-color: white ;
+  border: 1px solid #ff4c3b;
+}
+.btnlogin {
+
+  color: #ff4c3b !important;
+}
+.btnlogin:hover{
+  background-color: #ff4c3b;
+  color: white !important;
+}
+.loginsocial{
+font-size: 14px;
+}
+.loginsocial span{
+  border: 1px solid rgba(0, 0, 0, 0.176);
+  padding: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.loginsocial i{
+  position: absolute;
+  font-size: 20px;
+}
+.btnsignup{
+  width: 270px;
+  background-color: #ff4c3b;
+  color: white;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 3px;
+}

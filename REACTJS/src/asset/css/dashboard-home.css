@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.bg-dashboard{
+    background-color: #EFF4FB;
+}
+.color-primary-icon-dashboard{
+    color: #f79737af;
+
+}
+.color-primary-icon-dashboard {
+    border: 2px solid transparent; /* Màu và độ dày của viền */
+    background-color: #F4F7FE;
+    border-radius: 50%; /* Làm cho viền trở nên tròn */
+    padding: 10px; /* Tạo khoảng cách giữa icon và viền */
+    display: inline-flex; /* Đảm bảo icon và viền được căn chỉnh chính xác */
+    align-items: center; /* Căn giữa icon theo chiều dọc */
+    justify-content: center; /* Căn giữa icon theo chiều ngang */
+    width: 69px; /* Độ rộng của vùng chứa icon */
+    height: 69px; /* Độ cao của vùng chứa icon */
+}

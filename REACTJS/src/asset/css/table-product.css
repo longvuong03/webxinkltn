@@ -1,0 +1,17 @@
+#collapse1{
+    overflow-y:scroll;
+    height:710px;
+}
+
+.description-container {
+    width: 40px; /* Điều chỉnh kích thước để phù hợp với bảng */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .color-success{
+    background-color: #2ecc71;
+  }
+  #collapse1::-webkit-scrollbar {
+    display: none;
+}

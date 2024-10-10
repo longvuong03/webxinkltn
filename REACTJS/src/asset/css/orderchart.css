@@ -1,0 +1,17 @@
+.chart-container {
+    display: flex;
+    justify-content: space-between; /* Căn giữa giữa các biểu đồ */
+    margin: 20px 0; /* Tạo khoảng cách phía trên và dưới */
+  }
+  
+  .chart {
+    flex: 1; /* Cung cấp không gian cho các biểu đồ */
+    margin: 0 10px; /* Tạo khoảng cách giữa các biểu đồ */
+  }
+  .chart-description {
+    display: block; /* Đảm bảo mô tả nằm dưới biểu đồ */
+    margin-top: 5px; /* Tạo khoảng cách giữa biểu đồ và mô tả */
+    font-size: 0.9rem; /* Kích thước chữ nhỏ hơn */
+    color: #666; /* Màu chữ xám nhẹ */
+    text-align: center; /* Căn giữa mô tả */
+  }  

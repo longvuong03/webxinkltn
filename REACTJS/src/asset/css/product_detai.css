@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+#common_banner_cart{
+    background-image: url(../image//common_bg.03a52b4.png);
+    padding: 90px 0;
+    background-repeat: no-repeat;
+}
+/* Thêm vào file CSS của bạn hoặc trong style của component */
+.toast-container {
+    position: fixed;
+    top: 20px; /* Khoảng cách từ trên cùng */
+    right: 20px; /* Khoảng cách từ bên phải */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column-reverse; /* Đặt các toast mới lên trên cùng */
+  }
+.text_bread{
+    color: #f79837;
+    font-size: 22px;
+}
+.img-product{
+    width: 510px;
+    height: 550px;
+    position: relative;
+}
+.buttondropdown{
+    border: 1px solid #f79837;
+    padding: 10px 20px;
+    color: black;
+    border-radius: 8px;
+    background-color: #f79837;
+}
+.buttondropdown:hover{
+    border: 1px solid #f79837;
+    padding: 10px 20px;
+    color: black;
+    border-radius: 8px;
+    background-color: #f79837;  
+}
+.btn_shopnow{
+    background-color: black;
+    color: white;
+    outline:none;
+    border: none;
+text-decoration: none;
+    padding: 10px 25px;
+text-transform: uppercase;
+font-weight: 700;
+}
+.content-product-detail{
+    height: 1000px;
+}

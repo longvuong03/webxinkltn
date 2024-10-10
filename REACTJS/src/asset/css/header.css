@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+header{
+    position: sticky; /* or position: fixed; */
+  top: 0;
+  z-index: 1000;
+    font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: white;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.list-navigate-header{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 25px 30px;
+    transition: .3s;
+    margin-top: 10px;
+}
+.list-navigate-header li{
+    transition: .3s;
+    margin-right: 60px;
+}
+.list-navigate-header li:hover{
+    color: #f79837;
+}
+.btn-header-to{
+    font-size: 21px;
+    padding: 25px 30px;
+    height: 40px;
+    display: flex;
+
+}
+.btn-header-to span{
+    padding: 0px 12px;
+}
+.btn-header-to input{
+    padding-left: 10px;
+    font-size:18px;
+    width: 290px;
+    height: 41px;
+    outline:none;
+    border: 1px solid grey;
+    border-right: none;
+
+}
+.kinhlup-header{
+    border: 1px solid grey;
+    padding: 8px;
+    padding-bottom: 10px;
+    padding-top: 8px;
+    border-left: none;
+}
+.logo-text{
+    font-weight: 700;
+}
+.btn-header-to i:hover {
+    color: #0056b3;
+}

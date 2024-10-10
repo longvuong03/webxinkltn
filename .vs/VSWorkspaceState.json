@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WebApi",
+    "\\WebApi\\WebApi",
+    "\\WebApi\\WebApi\\Controllers",
+    "\\WebApi\\WebApi\\Data",
+    "\\WebApi\\WebApi\\Migrations",
+    "\\WebApi\\WebApi\\Models",
+    "\\WebApi\\WebApi\\Services"
+  ],
+  "SelectedNode": "\\WebApi\\WebApi.sln",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+#common_banner_cart{
+    background-image: url(../image//common_bg.03a52b4.png);
+    padding: 90px 0;
+    background-repeat: no-repeat;
+}
+.text_bread{
+    color: #f79837;
+    font-weight: 600;
+    
+    font-size: 22px;
+}
+.head_table_cart{
+    color: white;
+    font-weight: 600;
+    background-color: #f79837;
+}
+.row_table_cart td{
+    border: 1px solid rgba(128, 128, 128, 0.164);
+    border-top: none;
+    font-weight: 600;
+    text-align: center;
+    font-size: 18px;
+    vertical-align: middle;
+}
+.head_cart_total{
+    background-color:#f79837 ;
+    padding: 8px;
+    color: white;
+    
+    font-weight: 600;
+}
+.cart_total_text{
+    color:#777c87;
+}
+.btn_shopnow{
+    background-color: black;
+    color: white;
+    outline:none;
+    border: none;
+    padding: 10px 35px;
+    transition: .3s;
+text-transform: uppercase;
+font-weight: 700;
+}
+.table_cart{
+
+    overflow: scroll;
+    
+}
+.btn_shopnow:hover{
+    background-color: white;
+    color: black;
+}
+.cart_total_text{
+    border: 1px solid rgba(128, 128, 128, 0.164);
+    padding-bottom: 15px;
+}

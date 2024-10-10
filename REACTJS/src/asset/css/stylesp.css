@@ -1,0 +1,78 @@
+.bg-f8f8f8 {
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+body{
+  overflow: auto;
+}
+.brandsp a {
+  display: flex;
+  flex-direction: column;
+  padding: 3px 0;
+  text-decoration: none;
+  color: gray;
+  margin-left: 10px;
+}
+.hr-brandsp{
+  border-top: 2px solid #ff4c3b;
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.imgsp{
+  height: 536px;
+  width: 536px;
+}
+.imgdes{
+  width: 116px;
+  height: 158px;
+  border:1px solid rgba(0, 0, 0, 0.196);
+  transition: all 0.3s;
+}
+.btnlinksize{
+  border: 1px solid black;
+  padding: 0 10px;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.btnlinksize-active{
+  border: 1px solid #ff4c3b;
+  color: #ff4c3b !important;
+}
+.pquanity{
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.288);
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.pquanity span{
+  margin-top: 10px;
+
+}
+.buttonminus ,.buttonplus{
+  background-color:white;
+  padding:5px;
+  width: 40px;
+}
+.buttonminus i,.buttonplus i{
+  color:gray;
+  transition: 0.4s;
+}
+.buttonminus i:hover,.buttonplus i:hover{
+  color: #ff4c3b;
+}
+.buttonbuy{
+  background-color: #ff4c3b;
+  color:white;
+  padding: 10px;
+  margin-right: 15px;
+  border-radius: 3px;
+}
+.cards{
+  width: 11rem;
+}
+.card-hover-icon{
+  font-size: 20px !important;
+}

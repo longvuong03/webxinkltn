@@ -1,0 +1,47 @@
+.variation_one{
+    width: 98%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.vari-img{
+    transition: .4s;
+
+}
+
+.product_var_one_text {
+    top: 50%;
+}
+.hoverxin:hover img{
+    opacity: 77%;
+    
+}
+
+.product_var_one_text, .product_var_one_text_center {
+    position: absolute;
+    left: 40px;
+    padding: 10px;
+    transform: translateY(-40%);
+    width: 50%;
+
+}
+.lentrenti{
+    transform: translateY(-120%);
+}
+.color_one{
+    text-transform: uppercase;
+    color: #f79837;
+    font-weight: 700;
+
+}
+.btn_shopnow{
+    background-color: black;
+    color: white;
+    outline:none;
+    border: none;
+text-decoration: none;
+    padding: 10px 25px;
+    transition: .3s;
+text-transform: uppercase;
+font-weight: 700;
+}
