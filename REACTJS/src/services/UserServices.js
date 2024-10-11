@@ -21,4 +21,8 @@ const logins = (email, password) => {
 const registerUser = (email, first_name, last_name, password) => {
     return axios.post('/api/user/register', { email, first_name, last_name, password });
 }
-export { fetchAllUser, postCreateUser, deleteUser, getbyideUser, putUpdateUser, logins,registerUser  };
+ const getbyidesUser = async (id) => {
+    const response = await axios.get(`/api/user/getbyiduser/${id}`);
+    return response; // Trả về chỉ data
+  };
+export { fetchAllUser, postCreateUser, deleteUser, getbyideUser, putUpdateUser, logins,registerUser,getbyidesUser  };

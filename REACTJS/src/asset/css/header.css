@@ -10,6 +10,25 @@ header{
 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+.search-results {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 500px;
+    z-index: 1000; /* Đảm bảo danh sách kết quả nổi bật trên các phần tử khác */
+  }
+  
+  .search-result-item {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .search-result-item:hover {
+    background-color: #f0f0f0; /* Hiệu ứng hover */
+  }
 .list-navigate-header{
     display: flex;
     align-items: center;
@@ -34,17 +53,33 @@ header{
     display: flex;
 
 }
+.search-container {
+  position: relative; /* Để định vị biểu tượng */
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px; /* Căn chỉnh bên phải của ô input */
+  top: 50%; /* Giữa theo chiều dọc */
+  transform: translateY(20%); /* Giữa hoàn toàn */
+  pointer-events: none; /* Để không làm gián đoạn sự kiện click vào input */
+}
+
+.search-icon i {
+  color: #888; /* Màu sắc biểu tượng */
+}
+
 .btn-header-to span{
     padding: 0px 12px;
 }
 .btn-header-to input{
     padding-left: 10px;
     font-size:18px;
-    width: 290px;
+    width: 280px;
     height: 41px;
     outline:none;
     border: 1px solid grey;
-    border-right: none;
+
 
 }
 .kinhlup-header{

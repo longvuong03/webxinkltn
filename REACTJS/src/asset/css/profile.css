@@ -1,0 +1,46 @@
+.profile-container {
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    max-width: 1200px; /* Chiều rộng tối đa */
+    margin: 0 auto; /* Giữa trang */
+    padding: 20px; /* Padding cho bên trong */
+    border-radius: 8px; /* Bo tròn góc */
+  }
+  
+  h2 {
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+  }
+  
+  .profile-form {
+    display: flex;
+    flex-direction: column; /* Xếp dọc các trường */
+  }
+  
+  .form-group {
+    margin-bottom: 15px; /* Khoảng cách giữa các trường */
+  }
+  
+  label {
+    font-weight: bold; /* Chữ in đậm cho nhãn */
+    margin-bottom: 5px; /* Khoảng cách dưới nhãn */
+  }
+  
+  input {
+    padding: 10px; /* Padding cho trường input */
+    border: 1px solid #ccc; /* Đường viền */
+    border-radius: 4px; /* Bo tròn góc */
+  }
+  
+  .update-button {
+    padding: 10px; /* Padding cho nút */
+    background-color: #007bff; /* Màu nền cho nút */
+    color: white; /* Màu chữ */
+    border: none; /* Không có đường viền */
+    border-radius: 4px; /* Bo tròn góc */
+    cursor: pointer; /* Con trỏ khi hover */
+  }
+  
+  .update-button:hover {
+    background-color: #0056b3; /* Màu nền khi hover */
+  }
+  

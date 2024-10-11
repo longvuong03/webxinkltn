@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import Table from "react-bootstrap/Table";
+
 import {
   getbyidProduct,
   deleteProduct,

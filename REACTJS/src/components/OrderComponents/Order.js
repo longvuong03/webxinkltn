@@ -31,25 +31,25 @@ function Order() {
   };
   const handlePayment = async () => {
     try {
-        const user = JSON.parse(sessionStorage.getItem("user"));
-        const email = user.email; // Giả định rằng email có trong thông tin người dùng
+      const user = JSON.parse(sessionStorage.getItem("user"));
+      const email = user.email; // Giả định rằng email có trong thông tin người dùng
 
-        // Kiểm tra xem selectedOrderId có phải là null không
-        if (!selectedOrderId) {
-          toast.error("Please select an order before proceeding with payment.");
-            return;
-        }
+      // Kiểm tra xem selectedOrderId có phải là null không
+      if (!selectedOrderId) {
+        toast.error("Please select an order before proceeding with payment.");
+        return;
+      }
 
-        const response = await axios.post(
-            `https://localhost:7233/api/order/payment`, 
-            { orderId: selectedOrderId, email: email } // Gửi cả orderId và email
-        );
-        toast.success(response.data); // Hiển thị thông báo thành công
+      const response = await axios.post(
+        `https://localhost:7233/api/order/payment`,
+        { orderId: selectedOrderId, email: email } // Gửi cả orderId và email
+      );
+      toast.success(response.data); // Hiển thị thông báo thành công
     } catch (error) {
-        console.error("Error sending payment:", error);
-        alert("Error sending payment: " + error.response?.data?.data?.title || error.message);
+      console.error("Error sending payment:", error);
+      alert("Error sending payment: " + error.response?.data?.data?.title || error.message);
     }
-};
+  };
 
   const handleDelete = async (id) => {
     await deleteOrderItem(id);
@@ -140,12 +140,12 @@ function Order() {
                     <tfoot className="border-0">
                       <tr>
                         <td colSpan={7} className="text-center border-0"> {/* Thay đổi colspan theo số cột của bảng */}
-                        <button className="btn btn-success" onClick={() => {
-        setSelectedOrderId(orderWithDetails.order.id); // Thiết lập selectedOrderId
-        handlePayment();
-      }}>
-        Payment
-      </button>
+                          <button className="btn btn-success" onClick={() => {
+                            setSelectedOrderId(orderWithDetails.order.id); // Thiết lập selectedOrderId
+                            handlePayment();
+                          }}>
+                            Payment
+                          </button>
                         </td>
                       </tr>
                     </tfoot>

@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import { putUpdateUser } from '../../services/UserServices';
 import { toast } from 'react-toastify';
 import { set } from 'lodash';
+import { Toast, ToastContainer } from "react-bootstrap"; // Nhập khẩu ToastContainer
 
 const ModalEditUser = (props) => {
     const { show, handleClose, dataUserEdit, handleEditUserFrommodal } = props;
@@ -13,7 +14,11 @@ const ModalEditUser = (props) => {
     const [avatar, setAvatar] = useState('');
     const [password, setpassword] = useState('');
     const [address, setaddress] = useState('');
-
+    const [toasts, setToasts] = useState([]);
+    const addToast = (message) => {
+        const id = Date.now(); // Generate a unique ID for each toast
+        setToasts([...toasts, { id, message }]);
+      };
 
     const handleUpdateUser = async () => {
         try {
@@ -32,7 +37,8 @@ const ModalEditUser = (props) => {
                     address:address
                 });
                 handleClose();
-                toast.success("User updated successfully");
+            addToast("Update success");
+
             }
         } catch (error) {
             console.error("Error updating user:", error);
@@ -107,6 +113,36 @@ const ModalEditUser = (props) => {
                     </Button>
                 </Modal.Footer>
             </Modal>
+            <ToastContainer
+        style={{
+          position: "fixed",
+          top: "20px",
+          right: "20px",
+          zIndex: 1050,
+        }}
+        className="p-3"
+      >
+        {toasts.map((toast) => (
+          <Toast
+            key={toast.id}
+            delay={1000}
+            autohide
+            onClose={() => setToasts(toasts.filter((t) => t.id !== toast.id))}
+            className="mb-2"
+            style={{ maxWidth: "300px" }}
+          >
+            <Toast.Header>
+              <strong className="me-auto text-success fw-bold fs-5">
+                Success
+                <i className="bi bi-check2-circle text-success"></i>
+              </strong>
+            </Toast.Header>
+            <Toast.Body className="bg-white">
+              <h6>{toast.message}</h6>
+            </Toast.Body>
+          </Toast>
+        ))}
+      </ToastContainer>
         </>
     );
 };

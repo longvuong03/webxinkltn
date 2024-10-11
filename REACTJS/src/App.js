@@ -17,6 +17,8 @@ import MainLayout from "./components/AdminComponents/MainLayout";
 import AdminLayout from "./components/AdminComponents/AdminLayout";
 import Sidebar from "./components/AdminComponents/Sidebar";
 import Cart from "./components/CartComponents/Cart";
+import Profile from "./components/ProfileComponents/Profile";
+
 import './asset/css/dashboard-home.css'; // Chứa CSS của em
 
 function App() {
@@ -83,6 +85,14 @@ function App() {
           element={
             <MainLayout>
               <Register />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/profile/"
+          element={
+            <MainLayout>
+              <Profile />
             </MainLayout>
           }
         />
