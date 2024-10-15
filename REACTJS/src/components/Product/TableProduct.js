@@ -58,7 +58,7 @@ const TableProduct = () => {
     setFilteredProducts(sortedData);
     setSortConfig({ key, direction });
   };
-  
+
   const exportToExcels = () => {
     const dataToExport = filteredProducts.map((product, index) => ({
       ID: index + 1,
@@ -68,7 +68,7 @@ const TableProduct = () => {
         MAX_DESCRIPTION_LENGTH
       ),
       Quantity: product.quantity,
-      Price: "$"+ product.price  ,
+      Price: "$" + product.price,
       CreatedAt: format(new Date(product.createdAt), "dd MMM yyyy, HH:mm"),
     }));
 
@@ -129,7 +129,7 @@ const TableProduct = () => {
       getProducts(1);
     }
   };
-  
+
   const handleShowGetByIdProduct = async (id) => {
     try {
       const res = await getbyidProduct(id);
@@ -149,24 +149,24 @@ const TableProduct = () => {
 
       <div className="container-fluid">
         <div className=" d-flex justify-content-between">
-        <div>
-      <p className="mt-3 text-secondary">Pages/Dashboard/Product</p>
-      <p className="fs-3 fw-bold">Main Dashboard</p>
+          <div>
+            <p className="mt-3 text-secondary">Pages/Dashboard/Product</p>
+            <p className="fs-3 fw-bold">Main Dashboard</p>
           </div>
         </div>
-        
+
         <div className="row d-flex justify-content-between">
           <div className="col-4">
-          <div className="search-product-bar my-2">
-          <input
-            type="text"
-            placeholder="Search.."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="px-1 py-1 input_product_search"
-          />
-          <i className="bi bi-search btn btn-success"></i>
-        </div>
+            <div className="search-product-bar my-2">
+              <input
+                type="text"
+                placeholder="Search.."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="px-1 py-1 input_product_search"
+              />
+              <i className="bi bi-search btn btn-success"></i>
+            </div>
           </div>
           <div className="col-3 text-end">
             <Button
@@ -176,13 +176,13 @@ const TableProduct = () => {
               <i class="bi bi-plus-circle"></i> Add New
             </Button>
             <Button variant="primary" onClick={exportToExcels}>
-            <i class="bi bi-file-earmark-excel"></i> Export Excel
+              <i class="bi bi-file-earmark-excel"></i> Export Excel
             </Button>
           </div>
         </div>
         <div id="collapse1" className="">
           <Table className="bg-white table-responsive">
-          <thead>
+            <thead>
               <tr>
                 <th onClick={() => handleSort("id")}>
                   ID{" "}

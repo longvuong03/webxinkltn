@@ -439,3 +439,4 @@ C:\Users\longk\Downloads\webxin-main\WebApi\WebApi\obj\Debug\net7.0\refint\WebAp
 C:\Users\longk\Downloads\webxin-main\WebApi\WebApi\obj\Debug\net7.0\WebApi.pdb
 C:\Users\longk\Downloads\webxin-main\WebApi\WebApi\obj\Debug\net7.0\WebApi.genruntimeconfig.cache
 C:\Users\longk\Downloads\webxin-main\WebApi\WebApi\obj\Debug\net7.0\ref\WebApi.dll
+C:\Users\longk\Downloads\webxin-main\WebApi\WebApi\obj\Debug\net7.0\WebApi.sourcelink.json

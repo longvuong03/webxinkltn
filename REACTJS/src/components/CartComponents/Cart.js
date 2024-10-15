@@ -3,9 +3,12 @@ import {
   deleteQuantitycart,
   addQuantitycart,
 } from "../../services/CartService";
+import { toast, ToastContainer } from 'react-toastify';
+
 import {
   AddOrder,
 } from "../../services/OrderService";
+import axios from 'axios'
 
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "../../asset/css/cart.css";
@@ -83,12 +86,29 @@ function Cart() {
   useEffect(() => {
     fetchCartItems();
   }, []);
-
-  const AddOrders = async () => {
-    const user = JSON.parse(sessionStorage.getItem('user'));
-    await AddOrder(user.id);
-    await fetchCartItems();
+  const handlePayment = async () => {
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    const email = user.email; // Giả định rằng email có trong thông tin người dùng
+  
+  
+     // Kiểm tra payload
+  
+    try {
+      const response = await axios.post(
+        "https://localhost:7233/api/cart/payment",
+        { id: user.id, email: email }
+      );
+      toast.success(response.data); // Hiển thị thông báo thành công
+      await AddOrder(user.id);
+      await fetchCartItems();
+    } catch (error) {
+      console.error("Error processing payment:", error);
+      alert("Error processing payment: " + error.response?.data?.data?.title || error.message);
+    }
   };
+  
+  
+
 
   return (
     <>
@@ -175,7 +195,7 @@ function Cart() {
                   <p>{calculateTotal() + 25} $</p>
                 </div>
                 <div className="shipping_text d-flex justify-content-end">
-                  <button onClick={AddOrders} className="btn_shopnow">
+                  <button onClick={handlePayment} className="btn_shopnow">
                     Checkout
                   </button>
                 </div>

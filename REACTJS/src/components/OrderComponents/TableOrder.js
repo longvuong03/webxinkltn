@@ -1,164 +1,160 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Table";
-import { deleteOrderItem } from "../../services/OrderService";
-import axios from "axios";
-import * as XLSX from "xlsx"; // Thêm thư viện xlsx
+import Button from "react-bootstrap/Button";
+import { getbyidesUser } from "../../services/UserServices"; // Dịch vụ lấy thông tin người dùng
+import { deleteOrderItem } from "../../services/OrderService"; // Dịch vụ xóa đơn hàng
 
 const OrdersTable = () => {
-  const [orders, setOrders] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [orderItems, setOrderItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  // Thêm trạng thái cho phân trang
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6); // Số lượng đơn hàng mỗi trang
-  const handleDelete = async (id) => {
-    await deleteOrderItem(id);
-    fetchOrderItems(); // Cập nhật lại danh sách sau khi xóa
+  const [itemsPerPage] = useState(6);
+  const [userNames, setUserNames] = useState({}); // Sử dụng object để lưu tên người dùng theo userId
 
-    // Thực hiện các hành động cần thiết sau khi xóa thành công (ví dụ: cập nhật giao diện)
-  };
   const fetchOrderItems = async () => {
     try {
-
-      const response = await fetch(
-        `https://localhost:7233/api/order/listallorders`
-      ); // Nối UserId vào URL
+      const response = await fetch(`https://localhost:7233/api/Order/listallorders`);
       const data = await response.json();
-      setOrders(data);
-      setLoading(false); // Đánh dấu dữ liệu đã được tải
+      setOrderItems(data);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching order items:", error);
       setError("Error fetching order items");
       setLoading(false);
     }
   };
+
+  const handleDelete = async (id) => {
+    await deleteOrderItem(id);
+    fetchOrderItems(); // Cập nhật lại danh sách sau khi xóa
+  };
+
   useEffect(() => {
     fetchOrderItems();
   }, []);
-  const handleSearch = () => {
-    return orders.filter((item) =>
-      item.products.nameProduct.toLowerCase().includes(searchTerm.toLowerCase())
+
+  const fetchUserNames = async (orderItems) => {
+    const users = {};
+    await Promise.all(
+      orderItems.map(async (orderWithDetails) => {
+        const userId = orderWithDetails.order.userId;
+        if (!users[userId]) { // Kiểm tra nếu tên người dùng chưa được lấy
+          const user = await getbyidesUser(userId);
+          users[userId] = user ? user.first_name : "Unknown";
+        }
+      })
     );
+    return users;
   };
 
-  // Hàm xuất dữ liệu ra file Excel
-  const exportToExcel = () => {
-    const filteredOrders = handleSearch();
-    // Chuyển đổi dữ liệu đơn hàng thành định dạng cho Excel
-    const worksheetData = filteredOrders.map((item, index) => ({
-      "Order ID": index + 1,
-      "Product Name": item.products.nameProduct.substring(0, 100), // Giới hạn độ dài
-      "Username": item.userName.substring(0, 100), // Giới hạn độ dài
-      Image: item.products.img.substring(0, 255), // Giới hạn độ dài đường dẫn
-      Quantity: item.orderDetail.quantity,
-      "Total Price":"$"+ item.orderDetail.totalPrice,
-    }));
-  
-    const worksheet = XLSX.utils.json_to_sheet(worksheetData);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Orders");
-  
-    XLSX.writeFile(workbook, "OrdersList.xlsx");
-  };
+  useEffect(() => {
+    const getUserNames = async () => {
+      const names = await fetchUserNames(orderItems);
+      setUserNames(names);
+    };
 
-  // Xác định các đơn hàng cần hiển thị cho trang hiện tại
-  const filteredOrders = handleSearch();
+    if (orderItems.length > 0) {
+      getUserNames();
+    }
+  }, [orderItems]);
+
+  const groupedOrders = (orderItems || []).reduce((acc, orderWithDetails) => {
+    const orderId = orderWithDetails.order.id;
+    if (!acc[orderId]) {
+      acc[orderId] = {
+        ...orderWithDetails,
+        orderDetails: [],
+      };
+    }
+    acc[orderId].orderDetails.push(...orderWithDetails.orderDetails);
+    return acc;
+  }, {});
+
+  const groupedOrderItems = Object.values(groupedOrders);
+
+  // Phân trang
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredOrders.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = groupedOrderItems.slice(indexOfFirstItem, indexOfLastItem);
 
-  // Tính toán tổng số trang
-  const totalPages = Math.ceil(filteredOrders.length / itemsPerPage);
+  const totalPages = Math.ceil(groupedOrderItems.length / itemsPerPage);
 
-  // Hàm chuyển trang
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <div>
-      <div>
-        <p className="mt-3 text-secondary">Pages/Dashboard/Order</p>
-        <p className="fs-3 fw-bold">Main Order</p>
+      <div className=" d-flex justify-content-between">
+          <div>
+            <p className="mt-3 text-secondary">Pages/Dashboard/Order</p>
+            <p className="fs-3 fw-bold">Main Dashboard</p>
+          </div>
+        </div>
+      <div className="container">
+        {currentItems.length === 0 ? (
+          <div>No orders found.</div>
+        ) : (
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>User Name</th>
+                <th>Img</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentItems.map((orderWithDetails) => (
+                orderWithDetails.orderDetails.map((item, index) => (
+                  <tr key={item.orderDetail.id}>
+                    {index === 0 && (
+                      <>
+                        <td rowSpan={orderWithDetails.orderDetails.length}>{orderWithDetails.order.id}</td>
+                        <td rowSpan={orderWithDetails.orderDetails.length}>{userNames[orderWithDetails.order.userId]}</td> {/* Hiển thị tên người dùng */}
+                      </>
+                    )}
+                    <td>
+                      <img src={item.products.img} style={{ width: "90px" }} alt="" />
+                    </td>
+                    <td>{item.products.nameProduct}</td>
+                    <td>{item.orderDetail.quantity}</td>
+                    <td>{item.orderDetail.totalPrice} $</td>
+                    <td>
+                      <Button variant="danger" onClick={() => handleDelete(item.orderDetail.id)}>
+                        Cancel
+                      </Button>
+                    </td>
+                  </tr>
+                ))
+              ))}
+            </tbody>
+          </Table>
+        )}
       </div>
-      
-      <div className="row d-flex justify-content-between">
-          <div className="col-4">
-          <div className="search-product-bar my-2">
-          <input
-            type="text"
-            placeholder="Search.."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="px-1 py-1 input_product_search"
-          />
-          <i className="bi bi-search btn btn-success"></i>
-        </div>
-          </div>
-          <div className="col-3 text-end">
-            <button className='btn btn-primary' onClick={exportToExcel}>
-            <i className="bi bi-file-earmark-excel"></i> Export Excel
-            </button>
-          </div>
-        </div>
-      
-      <Table className="bg-white">
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Customer</th>
-            <th>Address</th>
-            <th>Product Name</th>
-            <th>Image</th>
-            <th>Quantity</th>
-            <th>Total Price</th>
-            <th>Tools</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentItems.map((item, index) => (
-            <tr key={index}>
-              <td>{index + 1 + indexOfFirstItem}</td>
-              <td>{item.userName}</td>
-              <td>{item.address}</td>
-              <td>{item.products.nameProduct}</td>
-              <td>
-                <img src={item.products.img} style={{ width: "80px" }} alt="" />
-              </td>
-              <td>{item.orderDetail.quantity}</td>
-              <td>${item.orderDetail.totalPrice}</td>
-              <td><Button
-                      className="btn btn-danger"
-                      onClick={() => handleDelete(item.orderDetail.id)}>
-                      <i class="bi bi-trash-fill"></i>
-                    </Button>
-                  </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-
-      {/* Nút phân trang */}
       <div className="pagination">
-        <button 
-          onClick={() => handlePageChange(currentPage - 1)} 
-          disabled={currentPage === 1} 
-          style={{ marginRight: '5px' }}
-        >
-          &lt;
-        </button>
-        <span>{currentPage}</span>
-        <button 
-          onClick={() => handlePageChange(currentPage + 1)} 
-          disabled={currentPage === totalPages} 
-          style={{ marginLeft: '5px' }}
-        >
-          &gt;
-        </button>
+        {Array.from({ length: totalPages }, (_, index) => (
+          <Button 
+            key={index + 1} 
+            onClick={() => handlePageChange(index + 1)} 
+            disabled={currentPage === index + 1}
+          >
+            {index + 1}
+          </Button>
+        ))}
       </div>
-
     </div>
   );
 };

@@ -1,4 +1,6 @@
-﻿namespace WebApi.Models
+﻿using WebApi.Models.DTO;
+
+namespace WebApi.Models
 {
     public class Order
     {
@@ -8,5 +10,7 @@
         public decimal? TotalPrice { get; set; }
         public User User { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
+
+        
     }
 }

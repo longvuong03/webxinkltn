@@ -2,7 +2,8 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Nav from "../AdminComponents/Navs";
-import { toast, ToastContainer } from 'react-toastify';
+import { Toast, ToastContainer } from "react-bootstrap";
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react";
 import { deleteOrderItem } from "../../services/OrderService";
@@ -14,6 +15,12 @@ function Order() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedOrderId, setSelectedOrderId] = useState(null);
+  const [toasts, setToasts] = useState([]);
+
+    const addToast = (message) => {
+      const id = Date.now(); // Generate a unique ID for each toast
+      setToasts([...toasts, { id, message }]);
+    };
   const fetchOrderItems = async () => {
     try {
       const user = JSON.parse(sessionStorage.getItem("user"));
@@ -29,6 +36,23 @@ function Order() {
       setLoading(false);
     }
   };
+  const handleDeletes = async (id) => {
+    await deleteOrderItem(id);
+    fetchOrderItems();
+  };
+  
+  const handleDelete = async (orderId) => {
+    try {
+      // Gọi API để xóa tất cả các chi tiết đơn hàng theo orderId
+      await axios.delete(`https://localhost:7233/api/order/deleteOrder/${orderId}`);
+      addToast("Order canceled successfully.");
+      fetchOrderItems(); // Cập nhật lại danh sách đơn hàng
+    } catch (error) {
+      console.error("Error deleting order:", error);
+      toast.error("Error deleting order: " + error.message);
+    }
+  };
+  
   const handlePayment = async () => {
     try {
       const user = JSON.parse(sessionStorage.getItem("user"));
@@ -51,10 +75,7 @@ function Order() {
     }
   };
 
-  const handleDelete = async (id) => {
-    await deleteOrderItem(id);
-    fetchOrderItems();
-  };
+
 
   useEffect(() => {
     fetchOrderItems();
@@ -127,9 +148,9 @@ function Order() {
                           <td>{item.orderDetail.quantity}</td>
                           <td>{item.orderDetail.totalPrice} $</td>
                           <td>
-                            <Button
+                          <Button
                               variant="danger"
-                              onClick={() => handleDelete(item.orderDetail.id)}
+                              onClick={() => handleDeletes(item.orderDetail.id)}
                             >
                               Cancel
                             </Button>
@@ -140,15 +161,16 @@ function Order() {
                     <tfoot className="border-0">
                       <tr>
                         <td colSpan={7} className="text-center border-0"> {/* Thay đổi colspan theo số cột của bảng */}
-                          <button className="btn btn-success" onClick={() => {
-                            setSelectedOrderId(orderWithDetails.order.id); // Thiết lập selectedOrderId
-                            handlePayment();
-                          }}>
-                            Payment
-                          </button>
+                        <Button
+                              variant="danger"
+                              onClick={() => handleDelete(orderWithDetails.order.id)}
+                            >
+                              Cancel
+                            </Button>
                         </td>
                       </tr>
                     </tfoot>
+                    
                   </Table>
                 ) : (
                   <div>No order detail found.</div>
@@ -158,6 +180,36 @@ function Order() {
           ))
         )}
       </div>
+      <ToastContainer
+        style={{
+          position: "fixed",
+          top: "20px",
+          right: "20px",
+          zIndex: 1050,
+        }}
+        className="p-3"
+      >
+        {toasts.map((toast) => (
+          <Toast
+            key={toast.id}
+            delay={1000}
+            autohide
+            onClose={() => setToasts(toasts.filter((t) => t.id !== toast.id))}
+            className="mb-2"
+            style={{ maxWidth: "300px" }}
+          >
+            <Toast.Header>
+              <strong className="me-auto text-success fw-bold fs-5">
+                Success
+                <i className="bi bi-check2-circle text-success"></i>
+              </strong>
+            </Toast.Header>
+            <Toast.Body className="bg-white">
+              <h6>{toast.message}</h6>
+            </Toast.Body>
+          </Toast>
+        ))}
+      </ToastContainer>
     </>
   );
 }

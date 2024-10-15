@@ -1,74 +1,116 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Bar, Line } from "react-chartjs-2";
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  LineElement,
+  PointElement,
+  Title,
   Tooltip,
   Legend,
-  LineChart,
-  Line,
-} from "recharts";
+} from "chart.js";
 
-const OrdersChart = ({ orders }) => {
-  // Tạo dữ liệu cho biểu đồ số lượng sản phẩm đã bán
-  const quantityData = orders.reduce((acc, item) => {
-    const productName = item.products.nameProduct;
-    const existing = acc.find((entry) => entry.name === productName);
+// Đăng ký các thành phần cần thiết
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-    if (existing) {
-      existing.value += item.orderDetail.quantity;
-    } else {
-      acc.push({ name: productName, value: item.orderDetail.quantity });
+const OrderChart = () => {
+  const [orderData, setOrderData] = useState([]);
+  const [productData, setProductData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const fetchOrderData = async () => {
+    try {
+      const response = await fetch("https://localhost:7233/api/Order/listallorders");
+      const result = await response.json();
+
+      // Tính toán doanh thu
+      const revenueData = result.map(order => ({
+        id: order.order.id,
+        total: order.orderDetails.reduce((sum, item) => sum + item.orderDetail.totalPrice, 0),
+      }));
+
+      // Tính toán loại sản phẩm bán được
+      const productCounts = {};
+      result.forEach(order => {
+        order.orderDetails.forEach(item => {
+          const productName = item.products.nameProduct;
+          productCounts[productName] = (productCounts[productName] || 0) + item.orderDetail.quantity;
+        });
+      });
+
+      setOrderData(revenueData);
+      setProductData(Object.entries(productCounts).map(([name, count]) => ({ name, count })));
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching order data:", error);
+      setError("Error fetching order data");
+      setLoading(false);
     }
-    return acc;
+  };
+
+  useEffect(() => {
+    fetchOrderData();
   }, []);
 
-  // Tạo dữ liệu cho biểu đồ doanh thu theo từng đơn hàng
-  const revenueData = orders.map((item) => ({
-    orderId: item.id,
-    totalRevenue: item.orderDetail.totalPrice,
-  }));
+  // Dữ liệu cho biểu đồ doanh thu (Line Chart)
+  const revenueChartData = {
+    labels: orderData.map(order => `Order ${order.id}`),
+    datasets: [
+      {
+        label: "Total Revenue",
+        data: orderData.map(order => order.total),
+        fill: false, // Đặt fill là false để không tô màu bên dưới đường
+        backgroundColor: "rgba(75, 192, 192, 1)",
+        borderColor: "rgba(75, 192, 192, 1)",
+        tension: 0.3,
+      },
+    ],
+  };
 
-  // Tính tổng doanh thu tích lũy
-  const accumulatedRevenue = revenueData.reduce((acc, curr) => {
-    if (acc.length === 0) {
-      acc.push({ orderId: curr.orderId, cumulativeRevenue: curr.totalRevenue });
-    } else {
-      const lastCumulativeRevenue = acc[acc.length - 1].cumulativeRevenue;
-      acc.push({ orderId: curr.orderId, cumulativeRevenue: lastCumulativeRevenue + curr.totalRevenue });
-    }
-    return acc;
-  }, []);
+  // Dữ liệu cho biểu đồ loại sản phẩm bán được (Bar Chart)
+  const productChartData = {
+    labels: productData.map(product => product.name),
+    datasets: [
+      {
+        label: "Products Sold",
+        data: productData.map(product => product.count),
+        backgroundColor: "rgba(153, 102, 255, 0.6)",
+      },
+    ],
+  };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <div className="row">
       <div className="col-6">
-        <BarChart width={500} height={300} data={quantityData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="value" fill="#8884d8" />
-        </BarChart>
-        <small className="chart-description">Number of products sold.</small>
+        <h4 className="text-center">Total Revenue</h4>
+        <Line data={revenueChartData} />
       </div>
-
       <div className="col-6">
-        <LineChart width={500} height={300} data={accumulatedRevenue}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="orderId" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="cumulativeRevenue" stroke="#82ca9d" />
-        </LineChart>
-        <small className="chart-description">Cumulative revenue by order.</small>
+        <h4 className="text-center">Products Sold</h4>
+        <Bar data={productChartData} />
       </div>
     </div>
   );
 };
 
-export default OrdersChart;
+export default OrderChart;

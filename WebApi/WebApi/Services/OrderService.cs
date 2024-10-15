@@ -88,16 +88,24 @@ namespace WebApi.Services
             }
         }
 
-        public async Task DeleteOrderAsync(int id)
+        public async Task<bool> DeleteOrderAsync(int id)
         {
-            var order = await _context.Orders.FindAsync(id);
+            var order = await _context.Orders.Include(o => o.OrderDetails).FirstOrDefaultAsync(o => o.Id == id);
+
             if (order == null)
             {
-                throw new ArgumentException("Order not found.");
+                return false; // Trả về false nếu không tìm thấy đơn hàng
             }
 
+            // Xóa tất cả OrderDetails liên quan
+            _context.OrderDetails.RemoveRange(order.OrderDetails);
+
+            // Xóa đơn hàng
             _context.Orders.Remove(order);
             await _context.SaveChangesAsync();
+            return true; // Trả về true nếu xóa thành công
         }
+
+
     }
 }

@@ -14,6 +14,18 @@ const AddOrder = async (UserId) => {
         throw error;
     }
 };
+// src/services/OrderService.js
+const fetchAllOrders = async () => {
+  try {
+    const response = await fetch(`https://localhost:7233/api/Order/listallorders`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching order items:", error);
+    throw error; // Ném lỗi ra ngoài để xử lý ở component
+  }
+};
+
 export const deleteOrderItem = async (id) => {
     try {
       await axios.delete(`/api/Order/${id}`);
@@ -28,4 +40,4 @@ export const deleteOrderItem = async (id) => {
       }
     }
   };
-export { AddOrder};
+export { AddOrder,fetchAllOrders};

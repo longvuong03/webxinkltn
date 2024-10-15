@@ -174,6 +174,19 @@ namespace WebApi.Controllers
 
 
 
+        [HttpDelete("deleteOrder/{orderId}")]
+        public async Task<IActionResult> DeleteOrder(int orderId)
+        {
+            // Gọi dịch vụ để xóa đơn hàng theo orderId
+            var result = await _orderService.DeleteOrderAsync(orderId); // Sử dụng phương thức xóa trong service
+
+            if (result)
+            {
+                return Ok("Order deleted successfully.");
+            }
+            return NotFound("Order not found.");
+        }
+
 
 
         [HttpGet("listorder")]
@@ -235,59 +248,79 @@ namespace WebApi.Controllers
             public List<Modeldata> OrderDetails { get; set; }
         }
 
+        // API để lấy tất cả đơn hàng
         [HttpGet("listallorders")]
         public async Task<IActionResult> ListAllOrders()
         {
-            // Lấy tất cả các đơn hàng
-            var orders = await _orderService.GetAllOrdersAsync();
-
-            // Nếu không có đơn hàng, trả về danh sách rỗng
-            if (orders == null || !orders.Any())
+            try
             {
-                return Ok(new List<Modeldata>());
-            }
-
-            List<Modeldata> modeldatas = new List<Modeldata>();
-
-            foreach (var order in orders)
-            {
-                var orderDetails = await _orderDetailsService.GetOrderDetailsByOrderIdAsync(order.Id);
-
-                // Kiểm tra nếu UserId không null trước khi lấy thông tin người dùng
-                string userName = "Unknown"; // Giá trị mặc định nếu không tìm thấy người dùng
-                string address = "Unknown Address"; // Giá trị mặc định cho địa chỉ
-                if (order.UserId.HasValue) // Kiểm tra UserId có giá trị không
+                var orderDTOs = await _orderService.GetAllOrdersAsync(); // Lấy danh sách OrderDTO
+                if (orderDTOs == null || !orderDTOs.Any())
                 {
-                    var user = await _userService.GetUserByIdAsync(order.UserId.Value); // Sử dụng Value để lấy giá trị của int?
-                    if (user != null) // Kiểm tra nếu user tồn tại
-                    {
-                        userName = $"{user.first_name} {user.last_name}"; // Kết hợp tên và họ
-                        address = user.address ?? "Unknown Address"; // Lấy địa chỉ từ người dùng, nếu không có thì dùng giá trị mặc định
-                    }
+                    return Ok(new List<OrderWithDetails>());
                 }
 
-                foreach (var item in orderDetails)
-                {
-                    Products product = await _productService.GetProductByIdAsync(item.ProductId);
-                    product.OrderDetails = null;
+                List<OrderWithDetails> orderWithDetailsList = new List<OrderWithDetails>();
 
-                    // Khởi tạo đối tượng Modeldata
-                    var modeldata = new Modeldata()
+                foreach (var orderDTO in orderDTOs)
+                {
+                    // Ánh xạ OrderDTO sang Order
+                    var order = new Order
                     {
-                        OrderDetail = item,
-                        Products = product,
-                        UserName = userName, // Sử dụng tên người dùng đã lấy
-                        Address = address // Thêm địa chỉ vào Modeldata
+                        Id = orderDTO.Id,
+                        UserId = orderDTO.UserId,
+                        CreatedAt = orderDTO.OrderDate,
+                        TotalPrice = orderDTO.TotalAmount,
+                        // Ánh xạ thêm các thuộc tính khác nếu cần
                     };
 
-                    item.Product = null;
-                    item.Order = null;
-                    modeldatas.Add(modeldata);
-                }
-            }
+                    var orderDetails = await _orderDetailsService.GetOrderDetailsByOrderIdAsync(order.Id);
+                    if (orderDetails == null || !orderDetails.Any())
+                    {
+                        continue; // Nếu không có chi tiết đơn hàng thì bỏ qua
+                    }
 
-            return Ok(modeldatas);
+                    List<Modeldata> modeldatas = new List<Modeldata>();
+
+                    foreach (var item in orderDetails)
+                    {
+                        Products product = await _productService.GetProductByIdAsync(item.ProductId);
+                        if (product != null) // Kiểm tra nếu product không null
+                        {
+                            product.OrderDetails = null;
+
+                            var modeldata = new Modeldata()
+                            {
+                                OrderDetail = item,
+                                Products = product
+                            };
+                            item.Product = null;
+                            item.Order = null;
+                            modeldatas.Add(modeldata);
+                        }
+                    }
+
+                    var orderWithDetails = new OrderWithDetails()
+                    {
+                        Order = order,
+                        OrderDetails = modeldatas
+                    };
+                    orderWithDetailsList.Add(orderWithDetails);
+                }
+
+                return Ok(orderWithDetailsList);
+            }
+            catch (Exception ex)
+            {
+                // Log exception và trả về lỗi
+                return StatusCode(500, ex.Message); // Trả về mã trạng thái 500 Internal Server Error
+            }
         }
+
+
+
+
+
 
 
 

@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
 using WebApi.Models;
 using WebApi.Services;
+using static WebApi.Controllers.OrderController;
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
@@ -51,6 +54,98 @@ namespace WebApi.Controllers
 
             // Trả về danh sách modeldatas, nếu cart là null thì trả về danh sách rỗng
             return Ok(modeldatas);
+        }
+        public class PaymentRequests
+        {
+            public int id { get; set; }
+            public string Email { get; set; }
+        }
+        [HttpPost("payment")]
+        public async Task<IActionResult> Payment([FromBody] PaymentRequests paymentRequest)
+        {
+            // Lấy giỏ hàng dựa vào UserId
+            Cart cart = await cartService.GetCartByUserIdAsync(paymentRequest.id);
+
+            if (cart == null)
+            {
+                return BadRequest("Cart not found");
+            }
+
+            // Lấy danh sách CartDetails từ giỏ hàng
+            var cartDetails = await cartDetailsService.GetListCartDetailsAsync(cart.Id);
+            if (cartDetails == null || !cartDetails.Any())
+            {
+                return BadRequest("No cart details found.");
+            }
+
+            // Tính tổng giá trị giỏ hàng
+            decimal totalCartPrice = cartDetails.Sum(cd => cd.TotalPrice.GetValueOrDefault());
+
+            // Tạo bảng chi tiết sản phẩm
+            string productDetailsTable = @"
+    <table border='1' cellpadding='10' cellspacing='0' style='border-collapse: collapse;'>
+        <thead>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>";
+
+            foreach (var detail in cartDetails)
+            {
+                var product = await productService.GetProductByIdAsync(detail.ProductId);
+
+                productDetailsTable += $@"
+        <tr>
+            <td>{product.nameProduct}</td>
+            <td>{detail.Quantity}</td>
+            <td>{product.price}</td>
+            <td>{detail.TotalPrice.GetValueOrDefault():C}</td>
+        </tr>";
+            }
+
+            productDetailsTable += $@"
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan='3'><strong>Tổng cộng</strong></td>
+            <td><strong>{totalCartPrice:C}</strong></td>
+        </tr>
+    </tfoot>
+</table>";
+
+            // Tạo liên kết QR với tổng giá từ CartDetail
+            string qrCodeUrl = $"https://api.qrserver.com/v1/create-qr-code/?data=UserId:{paymentRequest.id},Total:{totalCartPrice}&size=200x200";
+
+            // Gửi email xác nhận
+            var mailMessage = new MailMessage("longkg4@gmail.com", paymentRequest.Email)
+            {
+                Subject = "Cart Payment Confirmation",
+                Body = $@"
+        <h1>Thông tin giỏ hàng của bạn</h1>
+        <h3>Chi tiết sản phẩm:</h3>
+        {productDetailsTable}
+        <p><strong>Tổng giá: {totalCartPrice:C}</strong></p>
+        <p>Mã QR thanh toán:</p>
+        <img src='{qrCodeUrl}' alt='QR Code'/>
+        ",
+                IsBodyHtml = true
+            };
+
+            using (var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("longkg4@gmail.com", "xede zsha jgws cojp"),
+                EnableSsl = true,
+            })
+            {
+                await smtpClient.SendMailAsync(mailMessage);
+            }
+
+            return Ok("Payment processed and email sent successfully.");
         }
 
         [HttpDelete("{id}")]
@@ -107,9 +202,9 @@ namespace WebApi.Controllers
             if (cart1 != null)
             {
                 Products products = await productService.GetProductByIdAsync(ProductId);
-                if (cart1 !=null)
+                if (cart1 != null)
                 {
-                    
+
                     cart1.Quantity += 1;
                     cart1.TotalPrice = cart1.Quantity * products.price;
                     await cartDetailsService.UpdateCartAsync(cart1);

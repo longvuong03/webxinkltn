@@ -3,28 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,6 +15,46 @@
       "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\models\\dto\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\models\\dto\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\models\\dto\\orderdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\models\\dto\\orderdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\services\\orderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\services\\orderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\models\\modeldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\models\\modeldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -43,24 +63,8 @@
       "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\models\\cartdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\models\\cartdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\models\\dto\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\models\\dto\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\models\\dto\\orderdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\models\\dto\\orderdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CEA78FFD-B537-4F92-8216-A9FAA927C20B}|WebApi\\WebApi.csproj|c:\\users\\longk\\downloads\\webxin-main\\webapi\\webapi\\migrations\\20241006152040_add-address user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,47 +78,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OrderService.cs",
-              "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Services\\OrderService.cs",
-              "RelativeDocumentMoniker": "WebApi\\Services\\OrderService.cs",
-              "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Services\\OrderService.cs",
-              "RelativeToolTip": "WebApi\\Services\\OrderService.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAqwDMAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T15:21:44.001Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "OrderController.cs",
               "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\OrderController.cs",
               "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Controllers\\OrderController.cs",
               "RelativeToolTip": "WebApi\\Controllers\\OrderController.cs",
-              "ViewState": "AQIAAP4AAAAAAAAAAAAUwCEBAAAJAAAA",
+              "ViewState": "AQIAAP4AAAAAAAAAAAAiwA8BAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T15:19:48.669Z"
+              "WhenOpened": "2024-10-01T15:19:48.669Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "WebApi\\Controllers\\CartController.cs",
-              "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Controllers\\CartController.cs",
-              "RelativeToolTip": "WebApi\\Controllers\\CartController.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "WebApi\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\Order.cs",
+              "RelativeToolTip": "WebApi\\Models\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T15:19:38.467Z"
+              "WhenOpened": "2024-10-10T18:23:30.212Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 4,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\ProductController.cs",
@@ -122,24 +116,24 @@
               "RelativeToolTip": "WebApi\\Controllers\\ProductController.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABcAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T15:19:29.655Z"
+              "WhenOpened": "2024-10-01T15:19:29.655Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Controllers\\UserController.cs",
               "RelativeToolTip": "WebApi\\Controllers\\UserController.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAQwFMAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T17:32:35.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T17:32:35.006Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\appsettings.json",
               "RelativeDocumentMoniker": "WebApi\\appsettings.json",
@@ -151,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "WebApi\\Services\\UserService.cs",
@@ -163,20 +157,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\User.cs",
               "RelativeDocumentMoniker": "WebApi\\Models\\User.cs",
               "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\User.cs",
               "RelativeToolTip": "WebApi\\Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAsAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T15:28:49.523Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:28:49.523Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "Modeldata.cs",
               "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\Modeldata.cs",
               "RelativeDocumentMoniker": "WebApi\\Models\\Modeldata.cs",
@@ -188,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "OrderDetail.cs",
               "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\OrderDetail.cs",
               "RelativeDocumentMoniker": "WebApi\\Models\\OrderDetail.cs",
@@ -196,11 +189,75 @@
               "RelativeToolTip": "WebApi\\Models\\OrderDetail.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T15:28:14.535Z"
+              "WhenOpened": "2024-10-01T15:28:14.535Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "OrderDTO.cs",
+              "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\DTO\\OrderDTO.cs",
+              "RelativeDocumentMoniker": "WebApi\\Models\\DTO\\OrderDTO.cs",
+              "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\DTO\\OrderDTO.cs",
+              "RelativeToolTip": "WebApi\\Models\\DTO\\OrderDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T15:19:18.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderDetailDTO.cs",
+              "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\DTO\\OrderDetailDTO.cs",
+              "RelativeDocumentMoniker": "WebApi\\Models\\DTO\\OrderDetailDTO.cs",
+              "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\DTO\\OrderDetailDTO.cs",
+              "RelativeToolTip": "WebApi\\Models\\DTO\\OrderDetailDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T15:31:10.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrderDetailService.cs",
+              "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Services\\OrderDetailService.cs",
+              "RelativeDocumentMoniker": "WebApi\\Services\\OrderDetailService.cs",
+              "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Services\\OrderDetailService.cs",
+              "RelativeToolTip": "WebApi\\Services\\OrderDetailService.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T05:18:12.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\CartController.cs",
+              "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Controllers\\CartController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\CartController.cs",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAQwEUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T15:19:38.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "WebApi\\Services\\OrderService.cs",
+              "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Services\\OrderService.cs",
+              "RelativeToolTip": "WebApi\\Services\\OrderService.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAUwGEAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T15:21:44.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Program.cs",
               "RelativeDocumentMoniker": "WebApi\\Program.cs",
@@ -208,12 +265,11 @@
               "RelativeToolTip": "WebApi\\Program.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAAqwDoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T16:58:54.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T16:58:54.629Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "CartDetail.cs",
               "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\CartDetail.cs",
               "RelativeDocumentMoniker": "WebApi\\Models\\CartDetail.cs",
@@ -225,19 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "WebApi\\Models\\Order.cs",
-              "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\Order.cs",
-              "RelativeToolTip": "WebApi\\Models\\Order.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T18:23:30.212Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "20241006152040_add-address user.cs",
               "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Migrations\\20241006152040_add-address user.cs",
               "RelativeDocumentMoniker": "WebApi\\Migrations\\20241006152040_add-address user.cs",
@@ -246,30 +290,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-06T15:20:40.627Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "OrderDetailDTO.cs",
-              "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\DTO\\OrderDetailDTO.cs",
-              "RelativeDocumentMoniker": "WebApi\\Models\\DTO\\OrderDetailDTO.cs",
-              "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\DTO\\OrderDetailDTO.cs",
-              "RelativeToolTip": "WebApi\\Models\\DTO\\OrderDetailDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T15:31:10.929Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "OrderDTO.cs",
-              "DocumentMoniker": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\DTO\\OrderDTO.cs",
-              "RelativeDocumentMoniker": "WebApi\\Models\\DTO\\OrderDTO.cs",
-              "ToolTip": "C:\\Users\\longk\\Downloads\\webxin-main\\WebApi\\WebApi\\Models\\DTO\\OrderDTO.cs",
-              "RelativeToolTip": "WebApi\\Models\\DTO\\OrderDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T15:19:18.104Z"
             }
           ]
         }
